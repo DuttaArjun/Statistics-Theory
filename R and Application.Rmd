@@ -1,0 +1,469 @@
+---
+title: "R and Application"
+author: "Arjun Dutta"
+date: "13 August 2018"
+output: html_document
+---
+# A.R Programming
+
+####1. R Input and Evaluation
+
+"x <- 1" This is an expression
+
+"x" Autoprinting
+
+"print(x)" explicit printing
+
+"#" for comment
+
+":" used to create integer sequence
+
+"str(object)" is diagonostic function is used to compactly display the internal structure of an R object.
+
+"split(airquality,airquality$Month)" to split that dataset by month into list which contains 5 dataframes.
+
+"gl(n,k,length=n*k,labels=seq_len(n),ordered=F)" generates factors by specifying the patterns of their level
+
+n is integer giving the number of levels 
+k is integer giving the number of replication
+
+#####Vectorised Operation
+
+Operations in R is vectorised
+
+```{r , include =FALSE}
+# All are element wise
+x <- 1:4
+y <- 5:8
+x + y
+x - y
+x * y
+x / y
+
+matrix <- matrix(1:4,2,2)
+matriy <- matrix(5:8,2,2)
+matrix * matriy #element wise matrix multiplication
+matrix/matriy   #element wise division
+matrix %*% matriy  #true matrix multiplication
+
+```
+
+####2. Data Types: Objects and Attributes
+
+R has 5 basic atomic classes of object:
+
+* character
+* numeric
+* integer
+* complex
+* logical(True/False)
+
+####3. Numbers
+
+Numbers in R is treated as numeric objects(i.e. double precision real number)
+
+specify "L" after an number to explicitly give you an integer
+
+"1/0" is Inf
+
+"0/0" is NaN or missing value
+
+####4. Attributes
+
+R objects are built upon attributes:
+
+* names, dimnames
+* dimension       Every matrices has row and col or multidimensional array
+* class           Every object is a class
+* length
+* mode
+* other user defined attributes/metadata 
+
+"attributes()" function allows you to set or modify the attribute of an object.
+
+####5. Data Types: Vector and List
+
+* A vector is a basic objct that contain objects of same class
+* list is represented a vector but can contain objects of different class
+
+Vectors can be created using "c()" stands for "concatenate" and "vector(class="numeric",lenght=10)" functions will create a vector of with "0" values of length 10.
+
+####6. Coercion
+
+Implicit Coercion
+
+Explicit Coercion
+
+as.* function   i.e. as.integer(), as.character() etc
+
+List are special type of vector that can contain elements of different classes. 
+
+"x <- list(1,"a", TRUE, 1+4i)"
+
+The elements are indexed by double bracket.
+
+####7. Data Types: Matrices
+
+Matrices are vector with dime=ension attribute. The Dimension attribute is itself an integer vector of length 2.
+
+"m <- matrix(nrow = 2, ncol = 3)" will create a NA matrix
+
+Matrices number are inserted coloumn wise unless byrows = T argument is specified
+
+* Matrice by vector
+
+"m <- 1:10
+ dim(m) <- c(2,3)"
+
+* Joining mutiple vector as Coloumn
+
+"cbind(x,y)"
+
+* Joining mutiple vector as Row
+
+"rbind(x,y)"
+
+str(matrix) returns two dimensional homogeneous array structure.
+
+####8. Data Types: Factors
+
+Factors are used to represent categorical data. Factors can be ordered and unordered. factors are integer vector where integers are labels.
+
+"lm()" and "glm()" treats factors specially.
+
+####9. Data Type: Missing Value
+
+NA and NaN are Missing Values 
+
+"is.na()" and "is.nan()" is used to test objects if they are NA and NaN and it returns a logical vector.
+
+NA values have class also integers, character etc
+
+NaN is NA but NA is not NaN
+
+####10. Data Types: Dataframes
+
+Data Frame is used to store tabular data is a special type of list has to have the same length
+
+####11. Data Types: Names Attribute
+
+R objects can also have names, which is very useful for writing readable codes and self describing objects.
+
+* for vector
+"x <- 1:3
+names(x) <- c("A", "B", "C")"
+
+* for list
+"x <- list(a=1,b=2,c=3)"
+
+* for matrices
+
+"x <- matrices(1:4, nrow = 2, ncol = 2)
+dimnames(m) <- list(c("A", "B"), c("C", "D"))"
+
+####12. Reading Tabular Data
+
+####Reading Data
+
+* "read.csv(file= "File path/Connection", header = T/F, sep = ",", colClasses = , nrow) and read.table()" is used to read tabular data
+
+* "readLines" for reading lines of a text file
+
+* "source()" for reading R codes
+
+* "dget()" for reading R code files but for reading R objects that has been dparsed into text file.
+
+* "load() and unserialize()" is used to read R binary object.
+
+#####Reading Large Data
+
+* Know and specify the colClasses of the dataset everytime
+This makes read.table run a lot faster.
+This is quick and a dirty way to know the class fo any dataset
+"
+initial <- read.table("datatable.txt", nrows=10)
+classes <- sapply(initial,class)
+Data <- read.table("datatable.txt", colClasses = classes)
+"
+
+Also read.table(file,colClasses = "numeric") assumes all coloumns are numeric
+
+####Writing Data
+
+* "write.table()" "writeLines()" "dump" "dput" "save" "serialize" are paired up with their reading analog.
+
+####Subsetting
+
+Single bracket "[]" 
+1. Always returns an object of same class as the original 
+2. Can be used to select more than one variable.
+
+Double Bracket"[[]]"
+1. Used to extract element of a list or a data frame
+2. It can be only used to extract a single element and the class of the returned object will not necessarily be a list or data frame.
+
+Dollar sign "$"
+1. Used to extract element of a list or a dataframe by name.
+
+#####Indexing
+
+Numeric indexing is used to extract element by number
+
+Logical indexing is used to extract element that meet certain condition
+
+#####Subsetting-List
+
+```{r , include=FALSE}
+x <- list(foo=1:4, bar = 0.6, baz = "Hello")
+x[1]   #Returns List
+x[[1]] #Returns integer vector sequence
+x$bar  #Returns integer vector sequence
+x["bar"] #Returns List
+x[["bar"]] #Returns numeric since only one value
+
+x$foo[1] #extracting single element
+x[c(1,3)] #use single bracket to extract multiple element of a list
+
+name <- "foo"
+x[[name]]     #"[[]]" can be used with computed names
+
+x[[c(1,3)]] #double bracket is used to extract nested elements
+
+```
+
+#####Subsetting-Matrices
+
+```{r , include=FALSE}
+
+x <- matrix(1:9,3,3)
+
+x[1,2] #Extract elements integer
+
+x[,1] #1st col integer
+x[1,] #1st row integer
+
+x[1:2,1:2] #Matrix class is returned
+
+x[1,2, drop = FALSE] #matrix Class is returned
+```
+
+#####Subsetting-Partial Matching
+
+```{r setup, include=FALSE}
+x <- list(aardvark = 1:10)
+x[["a"]]
+x[["a", exact=F]] #Matching Variable 
+```
+
+#####Subsetting-Missing Values
+
+```{r , include=FALSE}
+x <- c(1,2,NA,5,6,NA)
+bad <- is.na(x)   #is a logical vector true where there is a NA
+x[!bad] #not operator for non missing values
+
+#Removing NA from multiple vectors
+
+x <- c(1,2,NA,5,6,NA)
+y <- c(NA,NA,4,7,5,NA)
+good <- complete.cases(x,y)
+x[good]
+y[good]
+
+#Removing NA from Dataframe
+good <- complete.cases(airquality)
+airquality[good,][1:6,]
+```
+
+####Control Structure
+
+IF Structure 
+
+"
+if(condition)
+{
+expression
+}
+
+else if(condition)
+{
+expression
+}
+
+else
+{
+expression
+}
+"
+
+"
+if(x>3)
+{
+y <- 10
+}
+else
+{
+y <- 0
+}
+"
+is same as
+"
+y <- if(x>3)
+{
+  10
+}
+else
+{
+0
+}
+"
+
+Sometime only the if clause works else clause might not be neceessary.
+
+FOR Structure
+
+####Function
+
+Functions are "first class objects" which means that they can be treated much like any other R objects.
+
+* Function can be pased as an argument to another function
+
+* Functions can be nested i.e you can define a function inside another function
+
+#####create a function 
+
+"
+obj_name <- function(arg1,arg2){
+      expression
+}
+
+"
+
+* You don't have to specify return because the last expression is always returned
+
+* Objects in the argument of function can be any Data Structure i.e vector, list, dataframe, etc
+
+Example
+
+1. Create a function that extract number above a threshold from a vector
+
+"
+above_n <- function(x, n=10){
+      use <- x > n
+      x[use]
+}
+
+x <- 1:20
+
+above_n(x, 15)
+
+"
+
+n=10 in the function is the default value of n
+
+2. Create a function to calculate mean of coloumns of a data frame: -
+
+"
+col_mean <- function(y, removena = TRUE){
+      nc <- ncol(y)
+      means <- numeric(nc)
+      for(i in 1:nc){
+      means[i] <- mean(y[,i], na.rm = removena)
+      }
+      means
+}
+
+col_mean(airquality)
+
+"
+
+* "formals(takes just the name of the function)" return the arguments of the named function
+
+#####
+
+
+
+####Apply Family for Loop
+
+
+
+
+
+####Simulation
+
+Probability distribution functions have four function associated with them:
+
+* d for density
+
+* r for random number generation
+
+* p for cumulative distribution i.e. P[x<=p]
+
+* q for quantile distribution
+
+dnorm(x, mean = 0, sd = 1, log = FALSE)
+pnorm(q, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)
+qnorm(p, mean = 0, sd = 1, lower.tail = TRUE, log.p  = FALSE)
+rnorm(n, mean = 0, sd = 1)
+ 
+If phi be the cumulative distribution function  =for standard normal distribution then pnorm(q) = phi(q) and qnorm(p) = phi-inverse(p)
+
+when doing simulation always set the seed using 
+set.seed(any number) if you want to generate the same set of random numbers again
+because if you want to reproduce the same result that is why you use the set seed.
+
+#####Simulating a Linear Model
+
+* Suppose we want to simulate from the following Linear Model
+
+Y = /* B^0 + B^1*X + */
+
+where 
+
+#####Random Sample
+
+sample(1:10,4) will give 4 number from1 to 10
+sample(letters,5) will give 5 small letters from a to z 
+sample(LETTERS) will give 5 big letters from A to Z 
+sample(1:10) will give 10 numbers from 1 to 10 in permutation
+sample(1:10, replace = T) will give sample with replacement
+
+####R Profiler
+
+The Idea of Profiling is a systematic way to examine how much time is spend in different parts of program or you want to optimize your code when you are looping 1000 iterations.
+
+You should first think about how to run the code how to amke it readable how other people can understand it then think of optimising your code.
+
+system.time() to check the time returns an abject of class proc_time.
+
+There are packages called Multi-Threaded BLAS(Basic Linear Algebra Standard) optimizes to use multiple cores
+
+MKL for Intel Machines
+Atlas for AMD
+
+# B.Getting and Cleaning Data
+
+####Downloading Files:
+
+* Know the working directory
+
+"getwd()" gets the working directory and "setwd()" sets the working directory
+
+In windows you have to use double backslahes (\\) rather than forward slashes 
+
+"file.exists("directoryname")" to check directory exist or not
+
+"dir.create("directoryname")"" to create a directory
+
+if(!file.exist("data")){
+dir.create("data")
+}
+
+"download.file(url,destfile,method)" used to download csv,tab delimited 
+if you are working in windows you don't need to specify method argument
+
+# C.Exploratory Data Analysis
+
+
+
+####

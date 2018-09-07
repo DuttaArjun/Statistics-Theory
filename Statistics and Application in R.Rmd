@@ -1,0 +1,568 @@
+---
+title: "Statistics and Application in R"
+author: "Arjun Dutta"
+date: "4 August 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# A. Statistical Scene
+
+##Definitions 
+
+1. What is **Random Variable**?<br />A random variable is any attribute of interest on which data is collected and analysed.
+
+2. What is **Data**?<br />Data is the actual values (numbers) or outcomes recorded on a random variable.
+
+Examples of Random Variable and Data :-
+
+* The travel distances of delivery vehicles (data: 34 km, 13 km, 21 km)
+* Brand of coffee preferred (data: Nescafé, Ricoffy, Frisco).
+* The daily occupancy rates of hotels in Cape Town (data: 45%, 72%, 54%)
+
+3. What is a **Sampling Unit**?<br />A sampling unit is the object being measured, counted or observed with respect to the
+random variable under study.
+
+This could be a consumer, an employee, a household, a company or a product. More than one random variable can be defined for a given sampling unit. For example, an employee could be measured in terms of age, qualification and gender.
+
+4. What is a **Population**?<br />A population is the collection of all possible data values that exist for the random variable
+under study.
+
+5. What is a population parameter?<br />A **population parameter** is a measure that describes a characteristic of a population. A population average is a parameter, so is a population proportion. It is called a parameter if it uses all the population data values to compute its value.
+
+6. What is a Sample?<br />A sample is a subset of data values drawn from a population.
+
+Examples of Sample :-
+
+* A sample of 25 hotels in Cape Town is selected to study hotel occupancy levels
+
+7. What is a Sample Statistics?<br />A sample statistic is a measure that describes a characteristic of a sample. The sample average and a sample proportion are two typical sample statistics.
+
+Examples of Sample Statistic :-
+
+* The average hotel occupancy level for the sample of 25 hotels surveyed
+
+8. What is Descriptive Statistics?<br />Descriptive statistics condenses sample data into a few summary descriptive measures.
+
+9. What is Inferential Statistics?<br />Inferential statistics generalises sample findings to the broader population.
+
+10. What is Statistical Modelling?<br />Statistical modelling builds models of relationships between random variables.
+
+Management Scenario: A proposed Flexi-Hour Working Policy
+
+An HR manager plans to introduce a flexi-hours working system to improve employee
+productivity.Among 5 758 employees in the organisation she randomly samples 218 employees, of whom 96 are female and
+122 are male. Each employee is asked to complete a short questionnaire.
+
+* Descriptive statistics will summarise the attitudes of the 218 randomly sampled
+employees towards the proposed flexi-hours work system. An illustrative sample finding
+could be that 64% of the sampled female employees support the proposal, while support
+from the sampled male employees is only 57%.
+* Inferential statistics would be used to generalise the sample findings derived from the
+218 respondents to reflect the likely views of the entire company of 5 758 employees. For
+example, the following two statistical conclusions could be drawn for all employees.
+* There is a 95% chance that between 58% and 63% of all employees will support this
+proposed flexi-hours working system.
+* With a 1% margin of error, females are more likely than males to support this proposal.
+
+##Data Types
+
+11. What is Qualitative RV?<br />Qualitative random variables generate categorical (non-numeric) response data. The data
+is represented by categories only.
+
+The following are examples of qualitative random variables with categories as data:
+* The gender of a consumer is either male or female.
+* An employee's highest qualification is either a matric, a diploma or a degree.
+
+Numbers are often assigned to represent the categories (e.g. 1 = male, 2 = female), but they are only codes and have no numeric properties. Such categorical data can therefore only be counted to determine how many responses belong to each category.
+
+12. What is Quantitative RV?<br />Quantitative random variables generate numeric response data. These are real numbers that can be manipulated using arithmetic operations (add, subtract, multiply and divide).
+
+The following are examples of quantitative random variables with real numbers as data:
+* the age of an employee (e.g. 46 years; 28 years; 32 years)
+* machine downtime (e.g. 8 min; 32.4 min; 12.9 min)
+
+13. What is Discrete data?<br />Discrete data is whole number (or integer) data.
+
+For example, the number of students in a class (e.g. 24; 37; 41; 46), the number of cars sold by a dealer in a month (e.g. 14; 27; 21; 16)
+
+14. What is Continuous data?<br />Continuous data is any number that can occur in an interval.
+
+For example, the assembly time for a part can be between 27 minutes and 31 minutes (e.g. assembly time = 28.4 min)
+
+##Measurement Scale
+
+Data can also be classified in terms of its scale of measurement. This indicates the 'strength' of the data in terms of how much arithmetic manipulation on the data is possible. There are four types of measurement scales: nominal, ordinal, interval and ratio. The scale also determines which statistical methods are appropriate to use on the data to produce valid statistical results.
+
+Nominal data
+
+Nominal data is associated with categorical data. If all the categories of a qualitative random
+variable are of equal importance, then this categorical data is termed 'nominal-scaled'.
+
+Examples of nominal-scaled categorical data are:
+
+* gender (1 = male; 2 = female)
+* city of residence (1 = Pretoria; 2 = Durban; 3 = Cape Town; 4 = Bloemfontein)
+
+Nominal data is the weakest form of data to analyse since the codes assigned to the various
+categories have no numerical properties. Nominal data can only be counted (or tabulated).
+
+Ordinal data
+
+Ordinal data is also associated with categorical data, but has an implied ranking between the
+different categories of the qualitative random variable. Each consecutive category possesses
+either more or less than the previous category of a given characteristic.
+
+Examples of ordinal-scaled categorical data are:
+
+* size of clothing (1 = small; 2 = medium; 3 = large; 4 = extra large)
+* product usage level (1 = light; 2 = moderate; 3 = heavy)
+
+Rank (ordinal) data is stronger than nominal data because the data possesses the numeric
+property of order (but the distances between the ranks are not equal). It is therefore still
+numerically weak data, but it can be analysed by more statistical methods (i.e. from the field
+of non-parametric statistics) than nominal data.
+
+Interval data
+
+Interval data is associated with numeric data and quantitative random variables. It is
+generated mainly from rating scales, which are used in survey questionnaires to measure
+respondents' attitudes, motivations, preferences and perceptions.
+
+Interval data possesses the two properties of rank-order (same as ordinal data) and distance
+in terms of 'how much more or how much less' an object possesses of a given characteristic.
+However, it has no zero point.
+
+Therefore it is not meaningful to compare the ratio of intervalscaled
+values with one another. For example, it is not valid to conclude that a rating of 4 is
+twice as important as a rating of 2, or that a rating of 1 is only one-third as important as a
+rating of 3.
+
+Examples of Interval Data are:
+
+1. How would you rate your chances of promotion after the next performance
+appraisal?<br />
+Very poor Poor Unsure Good Very good<br />
+1 2 3 4 5
+
+2. How satisfied are you with your current job description?<br />
+Very dissatisfied Dissatisfied Satisfied Very satisfied<br />
+1 2 3 4
+
+Ratio data
+
+Ratio data consists of all real numbers associated with quantitative random variables.
+Examples of ratio-scaled data are: employee ages (years), customer income (R), distance
+travelled (km), door height (cm),
+
+Ratio data has all the properties of numbers (order, distance and an absolute origin of
+zero) that allow such data to be manipulated using all arithmetic operations (addition,
+subtraction, multiplication and division). The zero origin property means that ratios can be
+computed (5 is half of 10, 4 is one-quarter of 16, 36 is twice as great as 18, for example).
+
+
+##Data Collection Methods
+
+What is Observation Collection?<br />Primary data can be collected by observing a respondent or a process in action. Examples include vehicle traffic surveys, pedestrian-flow surveys, in-store consumer behaviour studies, employee work practices studies and quality control inspections. The data can be recorded either manually or electronically. Electronic data collection is more reliable and more accurate (giving better quality data) than manual data-recording methods.
+
+What is Survey?<br />Survey methods gather primary data through the direct questioning of respondents using questionnaires to structure and record the data collection. Surveys are the most common form of data collection in consumer marketing and socio-economic research. Surveys
+capture mainly attitudinal-type data (i.e. opinions, awareness, knowledge, preferences,
+perception, intentions and motivations).
+
+* A personal interview is a face-to-face contact with a respondent during which a
+questionnaire is completed.
+
+* Telephone interviews are used extensively in snap (straw) opinion polls, but they can also
+be used for lengthier, more rigorous surveys.
+
+* An e-survey approach uses the technology of e-mails, the internet and mobile phones (e.g.
+sms) to conduct surveys and gather respondent data. E-surveys have largely replaced
+postal surveys.
+
+What is Experimentation Collection?<br />Primary data can also be obtained by conducting experiments. This means that the analyst manipulates certain variables under controlled conditions. Data on the primary variable under study can then be monitored and recorded, while a conscious effort is made to control the effects of a number of influencing factors. Statistical methods called experimental design models are used to analyse experimental data. This is the best form of data collection because the data is accurate and noise free but it is costly time consuming and it is sometime impossbile to control certain extraneouse factors, which can confound the result.
+
+Examples include:
+* price manipulation of products to monitor demand elasticity
+* testing advertising effectiveness by changing the frequency and choice of advertising
+media
+* altering machine settings in a supervised manner to examine the effects on product
+quality.
+
+# B.Exploratory Data Analysis
+
+##Categorical Data / Qualitative Data
+
+####Single Categorical Variable
+
+What is Categorical Frequency Table?<br />
+A categorical frequency table summarises data for a single categorical variable. It shows how many times each category appear in the table and also measures the relative importance by percentage.
+
+Mathemetical: -
+
+Construction of Categorical Table
+
+* List all the categories of the variable (in the first column).
+
+* Count and record (in the second column) the number of occurrences of each category.
+
+* Convert the counts per category (in the third column) into percentages of the total sample
+size. This produces a percentage categorical frequency table for comparison between categories.
+
+Graphical: -
+
+A categorical frequency table can be displayed graphically either as a bar chart or a
+pie chart.
+
+Bar Chart: -
+
+To construct a bar chart, draw a horizontal axis (x-axis) to represent the categories and a
+vertical axis (y-axis) scaled to show either the frequency counts or the percentages of each
+category. Then construct vertical bars for each category to the height of its frequency count (or percentage) on the y-axis.
+
+Pie Chart: -
+
+To construct a pie chart, divide a circle into category segments. The size of each segment
+must be proportional to the count (or percentage) of its category. The sum of the segment
+counts (or percentages) must equal the sample size (or 100%).
+
+Difference Between Pie And Bar Chart: -
+
+Bar charts and pie charts display the same information graphically. In a bar chart, the
+importance of a category is shown by the height of a bar, while in a pie chart this importance is shown by the size of each segment (or slice).
+
+####Two Categorical Variable
+
+What is Cross Tabulation?<br />
+A cross-tabulation table (also called a contingency table) summarises the joint responses
+of two categorical variables. The table shows the number (and/or percentage) of
+observations that jointly belong to each combination of categories of the two categorical
+variables. This summary table is used to examine the association between two categorical
+measures.
+
+Mathemetical: -
+
+Construction of Cross Tabulation Table
+
+
+* Prepare a table with m rows (m = the number of categories of the first variable) and n
+columns (n = the number of categories of the second variable), resulting in a table with
+(m × n) cells.
+
+* Assign each pair of data values from the two variables to an appropriate category-
+combination cell in the table by placing a tick in the relevant cell.
+
+* When each pair of data values has been assigned to a cell in the table, count the number
+of ticks per cell to derive the joint frequency count for each cell.
+
+* Sum each row to give row totals per category of the row variable.
+
+* Sum each column to give column totals per category of the column variable.
+
+* Sum the column totals (or row totals) to give the grand total (sample size).
+
+Graphical: -
+
+The cross-tabulation table can be displayed graphically either as a stacked bar chart (also
+called a component bar chart) or a multiple bar chart.
+
+Stacked Bar Chart: -
+
+To Construct a Stacked bar Chart, Choose, say, the row variable, and plot the frequency of each category of this variable as a simple bar chart. Split the height of each bar in proportion to the frequency count of the categories of the column variable.
+
+Multiple Bar Chart: -
+
+To Construct a Multiple Bar Chart, For each category of, say, the row variable, plot a simple bar chart constructed from the corresponding frequencies of the categories of the column variable. Display these categorised simple bar charts next to each other on the same axes.
+
+Difference Between Pie And Bar Chart: -
+
+The two charts convey exactly the same information on the association between the two
+variables. They differ only in how they emphasise the relative importance of the categories of the two variables.
+In a bar chart, the importance of a category is shown by the height of a bar, while in a pie chart this importance is shown by the size of each segment (or slice).
+
+##Numerical Data / Quantitative Data
+
+####Single Numerical Variable
+
+What is Numeric Frequency Distribution?<br />
+A numeric frequency distribution summarises numeric data into intervals of equal width.
+Each interval shows how many numbers (data values) falls within the interval.
+
+Mathemetical: -
+
+Construction of Numeric Frequency Distribution
+
+* Determine the data range.
+
+  Range = maximum data value - minimum data value
+  
+  For the age of grocery shoppers, the age data range is 69 ??? 23 = 46 years.
+  
+* Choose the number of intervals. 
+
+  As a rule, choose between five and eight intervals,
+  depending on the sample size: the smaller the sample size, the fewer the number of
+  intervals, and vice versa. For n = 30 shoppers, choose five intervals.
+
+* Determine the interval width.
+
+  Interval width = Data range/Number of intervals
+  
+  Use this as a guide to determine a 'neat' interval width. For the 'age' variable, the
+  approximate interval width is 46/5 = 9.2 years. Hence choose an interval width of 10 years.
+
+* Set up the interval limits. The lower limit for the first interval should be a value smaller than or equal to the        minimum data value and should be a number that is easy to use.
+  
+  Since the youngest shopper is 23 years old, choose the lower limit of the first interval to be 20.
+
+  The lower limits for successive intervals are found by adding the interval width to each preceding lower limit. The      upper limits are chosen to avoid overlaps between adjacent interval limits.
+  
+  The format of <30 (less than 30) should be used if the source data is continuous, while an upper limit such as 29 can    be used if the data values are discrete.
+
+* Tabulate the data values. Assign each data value to one, and only one, interval. A count of the data values assigned to   each interval produces the summary table, called the numeric
+  frequency distribution.
+
+When constructing a numeric frequency distribution, ensure that:
+  
+  * the interval widths are equal in size
+  
+  * the interval limits do not overlap (i.e. intervals must be mutually exclusive)
+  
+  * each data value is assigned to only one interval
+
+  * the intervals are fully inclusive (i.e. cover the data range)
+  
+  * the sum of the frequency counts must equal the sample size, n, or that the percentage frequencies sum to 100%.
+
+Graphical: -
+
+Histogram: - A histogram is a graphic display of a numeric frequency distribution.
+
+* Arrange the intervals consecutively on the x-axis from the lowest interval to the highest.
+There must be no gaps between adjacent interval limits.
+
+* Plot the height of each bar (on the y-axis) over its corresponding interval, to show either the frequency count or percentage frequency of each interval. The area of a bar (width × height) measures the density of values in each interval.
+
+
+####Pareto Curve
+
+A useful application of the bar chart - especially in quality control studies - is called a Pareto curve. A Pareto curve is a combination of a sorted bar chart and a cumulative categorical frequency table. In a sorted bar chart the categories on the x-axis are placed in decreasing order of frequency (or importance).
+
+Application: -
+
+As a tool in quality management, its purpose is to graphically identify and separate
+the 'critical few' problems from the 'trivial many' problems (the 20/80 rule). For example,
+what are the top three causes of machine failure out of a possible 25 causes - and what
+percentage of failures do they represent? This allows a manager to focus on the few critical
+issues and address these issues ahead of the remaining many trivial issues.
+
+Follow these steps to construct a Pareto curve:
+
+* Construct a categorical frequency table for the categorical random variable.
+
+* Rearrange the categories in decreasing order of frequency counts (or percentages).
+
+* Calculate the cumulative frequency counts (or cumulative percentages) starting from the
+highest frequency category (on the left) to the lowest frequency category (on the right).
+
+* Plot both the bar chart (using the left y-axis for the frequency counts or percentages)
+and the percentage cumulative frequency polygon (using the right y-axis) on the same
+x-y axes.
+
+##Describing Data
+
+####Introduction
+
+Three characteristics are commonly used to describe the data profile of a random variable.
+These are:
+
+* measures of location (both central and non-central)
+* measures of spread (or dispersion)
+* measure of shape (skewness).
+
+Location refers to the where the data values are concentrated. Central location is a
+representative 'middle' value of concentration of the data, while non-central location
+measures identify relevant 'off-centre' reference points in the data set (such as quartiles).
+
+Dispersion refers to the extent to which the data values are spread about the central location value. 
+
+Finally, skewness identifies the shape (or degree of symmetry) of the data values
+about the central location measure.
+
+Example: -
+
+An electronic goods company has recorded the daily sales (in rand) over a
+12-month trading period. The average daily sales are a measure of central location, while
+the extent to which daily sales vary around the average daily sales would be a measure of
+dispersion. Finally, a measure of skewness would identify whether any very large or very
+small daily sales values relative to the average daily sales have occurred over this period.
+
+####Measure of Location
+
+####Measure of Dispersion
+
+Dispersion (or spread) refers to the extent to which the data values of a numeric random
+variable are scattered about their central location value.
+
+####Measure of Skewness
+
+Skewness describes the shape of a unimodal histogram for numeric data.
+
+Three common shapes of a unimodal histogram can generally be observed:
+
+* symmetrical shapes
+* positively skewed shapes (skewed to the right)
+* negatively skewed shapes (skewed to the left).
+
+It is important to know the shape of the histogram because it affects the choice of central
+location and dispersion measures to describe the data, and may distort statistical findings
+generated from inferential techniques
+
+Choosing Valid Descriptive Statistics Measures
+
+* The choice of valid statistical measures to describe the profile for any random variable is determined by its data type, and by the shape of its histogram (for numeric variables only).
+
+For categorical type data (such as gender, dwelling type, job, sector, 'Are you employed?
+(Yes/No)') the only valid descriptive statistical measures are the categorical frequency
+table (count and percentage); the bar and pie charts; and the modal category. Measures of
+dispersion and skewness do not exist for categorical data as they have no meaning.
+
+For numeric type data, the appropriate descriptive statistical measures that can be used are:
+
+* a numeric frequency distribution (counts and percentages) and cumulative frequency
+distribution (ogives)
+
+* the histogram and frequency polygons
+
+* all central location measures: mean, median and mode (including geometric mean and
+weighted arithmetic mean)
+
+* the non-central location measures of quartiles and percentiles
+
+* all measures of dispersion: range, variance, standard deviation, coefficient of variation
+
+* a measure of skewness (Pearson's coefficient of skewness)
+
+* a graph of descriptive statistics measures: the box plot.
+
+If the shape of the histogram for a numeric random variable is symmetrical (bell-shaped)
+then all three measures of central location (mean, median and mode) can be used to
+represent the central location of the data values. It is always recommended that the mean
+be quoted when reporting statistical findings in such instances.
+
+If, however, the histogram is significantly skewed (either negatively or positively), then
+the mean is not a representative measure of central location. Then one of two courses of
+action is recommended:
+
+* Select the median to represent the measure of central location.
+
+* Remove the outlier(s) from the data set and re-calculate the mean. The revised
+mean can now be used to represent central location as it is no longer distorted
+by the (excluded) extreme data values. The outliers must however, be reported
+in any findings.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# C.Hypothesis Testing
+
+####Introduction
+
+When a manager makes a claim (or statement) about the value of a population parameter, it can be tested statistically using the inferential approach of hypothesis testing.
+
+Confidence interval as one approach to estimate the true value
+of a population parameter. Another approach of inferential statistics is to test, based on sample evidence, whether a claim made about the true value of a population parameter is valid. This inferential approach is known as hypothesis testing.
+
+The following statements are illustrative claims made about specific population parameters: 
+
+* An investment company claims that their average return on all investments is 14% p.a.
+
+* A soap manufacturer states that one in four households uses their product.
+A tyre manufacturer believes that the average tread life of their tyres is 75 000 km.
+
+* A tax auditor is convinced that more than 15% of all company tax returns are incorrectly completed.
+
+* An economist is of the view that there is no difference in the mean starting salaries earned between civil engineers and electrical engineers.
+
+* The factory manager of an exhaust manufacturer believes that, on average, worker output is higher during the day shift than during the night shift.
+
+Hypothesis tests will be conducted on the following four population parameters, all of which are measures of central location:
+
+* the single population mean, ??
+
+* the single population proportion, ??
+
+* the difference between two population means, ??1 ??? ??2
+
+* the difference between two population proportions, ??1 ??? ??2.
+
+Hypothesis testing is a process that tests 'how close' a sample statistic lies to a hypothesised population parameter value to decide whether to accept or reject the management claim.
+
+This process is formalised in a five-step procedure, as follows:
+
+Step 1: Define the statistical hypotheses (the null and alternative hypotheses).
+
+
+
+Step 2: Determine the region of acceptance of the null hypothesis.
+
+Step 3: Calculate the sample test statistic.
+
+Step 4: Compare the sample test statistic to the region of acceptance.
+
+Step 5: Draw statistical and management conclusions.
+
+###
+
+####Chi-Square Testing
+
+Chi-Square test is a Non-Parametric test used to test hypothesis on patterns of outcomes for categorical random variables. These patterns of outcomes are based on frequency counts. It differs from the z-statistic and the t-statistic tests that are used to conduct hypotheses tests on central location measures only.
+It always compares a set of observed frequencies obtained from a random sample to a set of expected frequencies that describes the null hypothesis.
+
+#####Uses Chi-Square
+
+* To examine whether a **single categorical random variable displays a certain pattern** (profile) of outcomes, e.g. is the coin biased or not
+
+* to test for **independence of association between two categorical variables**, e.g. 'Is the choice of magazine read associated with the reader's gender?'
+
+* to test for **equality of proportions across two or more populations**, e.g. 'Is the percentage of
+unionised workers per firm the same across four construction firms?'
+
+* as a **goodness-of-fit** test, e.g. 'Is the completion time (in minutes) for a task normally distributed?'
+
+The chi-squared test statistic (X2-stat) measures by how much the observed frequencies
+and the expected frequencies differ. **If this difference is small, the null hypothesis is likely to be accepted. Conversely, a large difference is likely to result in the null hypothesis being rejected.**
+
+The Formula is given by: -<br />
+$$X^2=\sum_{i=1}^{n} (f_0 - f_e)^2/f_e$$
+
+Where: <br />fo = observed frequency of a category of a categorical random variable<br />
+fe = expected frequency of a category of a categorical random variable
+
+Statistical independence means that the outcome of one random variable in no way influences (or is influenced by) the outcome of a second random variable.
+
+A hypothesis test will establish whether the association as observed in a cross-tabulation table is purely a chance occurrence or whether it reflects a genuine association between the variables in the populations from which the sample data was drawn.
+
+For example, if market research establishes that consumer brand choices of
+fruit juices are influenced by the type of packaging or the shelf position in a supermarket, decisions about which packaging to use or which shelf level to select are important. If, however, brand choice is independent of packaging or shelf level, these factors need not be considered in the promotion of fruit juices.
+
+# Linear Regression
+
