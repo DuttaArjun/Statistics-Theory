@@ -345,6 +345,36 @@ There must be no gaps between adjacent interval limits.
 
 * Plot the height of each bar (on the y-axis) over its corresponding interval, to show either the frequency count or percentage frequency of each interval. The area of a bar (width × height) measures the density of values in each interval.
 
+What is Cumulative Frequency Distribution?
+
+A cumulative frequency distribution is a summary table of cumulative frequency counts which is used to answer questions of a 'more than' or 'less than' nature.
+
+What is Ogive?
+
+An ogive is a graph of a cumulative frequency distribution. On the Y axis plot the cumulative frequency count and intervals on the x.
+
+What is a Box-Plot?
+
+A box plot visually displays the profile of a numeric variable by showing its minimum and maximum values and various intermediate descriptive values (such as quartiles and medians).
+
+####Two Numerical Variable
+
+The relationship between two numeric random variables can be examined graphically by
+plotting their values on a set of axes.
+
+The graphs that are useful to display the relationship between two numeric random
+variables are: a scatter plot, a trendline graph.
+
+
+Scatter Plot: -
+
+A scatter plot displays the data points of two numeric variables on an x-y graph.
+
+A visual inspection of a scatter plot will show the nature of a relationship between the two variables in terms of its strength (the closeness of the points), its shape (linear or curved), its direction (direct or inverse) and any outliers (extreme data values).
+
+Trendline Graph: -
+
+A trendline graph plots the values of a numeric random variable over time.Such data is called time series data.Trendline graphs are commonly used to identify and track trends in time series data.
 
 ####Pareto Curve
 
@@ -370,6 +400,11 @@ highest frequency category (on the left) to the lowest frequency category (on th
 * Plot both the bar chart (using the left y-axis for the frequency counts or percentages)
 and the percentage cumulative frequency polygon (using the right y-axis) on the same
 x-y axes.
+
+
+
+
+
 
 ##Describing Data
 
