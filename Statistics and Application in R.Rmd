@@ -61,11 +61,14 @@ productivity.Among 5 758 employees in the organisation she randomly samples 218 
 employees towards the proposed flexi-hours work system. An illustrative sample finding
 could be that 64% of the sampled female employees support the proposal, while support
 from the sampled male employees is only 57%.
+
 * Inferential statistics would be used to generalise the sample findings derived from the
 218 respondents to reflect the likely views of the entire company of 5 758 employees. For
 example, the following two statistical conclusions could be drawn for all employees.
+
 * There is a 95% chance that between 58% and 63% of all employees will support this
 proposed flexi-hours working system.
+
 * With a 1% margin of error, females are more likely than males to support this proposal.
 
 ##Data Types
@@ -74,7 +77,9 @@ proposed flexi-hours working system.
 is represented by categories only.
 
 The following are examples of qualitative random variables with categories as data:
+
 * The gender of a consumer is either male or female.
+
 * An employee's highest qualification is either a matric, a diploma or a degree.
 
 Numbers are often assigned to represent the categories (e.g. 1 = male, 2 = female), but they are only codes and have no numeric properties. Such categorical data can therefore only be counted to determine how many responses belong to each category.
@@ -82,7 +87,9 @@ Numbers are often assigned to represent the categories (e.g. 1 = male, 2 = femal
 12. What is Quantitative RV?<br />Quantitative random variables generate numeric response data. These are real numbers that can be manipulated using arithmetic operations (add, subtract, multiply and divide).
 
 The following are examples of quantitative random variables with real numbers as data:
+
 * the age of an employee (e.g. 46 years; 28 years; 32 years)
+
 * machine downtime (e.g. 8 min; 32.4 min; 12.9 min)
 
 13. What is Discrete data?<br />Discrete data is whole number (or integer) data.
@@ -97,7 +104,7 @@ For example, the assembly time for a part can be between 27 minutes and 31 minut
 
 Data can also be classified in terms of its scale of measurement. This indicates the 'strength' of the data in terms of how much arithmetic manipulation on the data is possible. There are four types of measurement scales: nominal, ordinal, interval and ratio. The scale also determines which statistical methods are appropriate to use on the data to produce valid statistical results.
 
-Nominal data
+1. Nominal data
 
 Nominal data is associated with categorical data. If all the categories of a qualitative random
 variable are of equal importance, then this categorical data is termed 'nominal-scaled'.
@@ -110,7 +117,7 @@ Examples of nominal-scaled categorical data are:
 Nominal data is the weakest form of data to analyse since the codes assigned to the various
 categories have no numerical properties. Nominal data can only be counted (or tabulated).
 
-Ordinal data
+2. Ordinal data
 
 Ordinal data is also associated with categorical data, but has an implied ranking between the
 different categories of the qualitative random variable. Each consecutive category possesses
@@ -126,7 +133,7 @@ property of order (but the distances between the ranks are not equal). It is the
 numerically weak data, but it can be analysed by more statistical methods (i.e. from the field
 of non-parametric statistics) than nominal data.
 
-Interval data
+3. Interval data
 
 Interval data is associated with numeric data and quantitative random variables. It is
 generated mainly from rating scales, which are used in survey questionnaires to measure
@@ -152,7 +159,7 @@ Very poor Poor Unsure Good Very good<br />
 Very dissatisfied Dissatisfied Satisfied Very satisfied<br />
 1 2 3 4
 
-Ratio data
+4. Ratio data
 
 Ratio data consists of all real numbers associated with quantitative random variables.
 Examples of ratio-scaled data are: employee ages (years), customer income (R), distance
@@ -185,9 +192,12 @@ postal surveys.
 What is Experimentation Collection?<br />Primary data can also be obtained by conducting experiments. This means that the analyst manipulates certain variables under controlled conditions. Data on the primary variable under study can then be monitored and recorded, while a conscious effort is made to control the effects of a number of influencing factors. Statistical methods called experimental design models are used to analyse experimental data. This is the best form of data collection because the data is accurate and noise free but it is costly time consuming and it is sometime impossbile to control certain extraneouse factors, which can confound the result.
 
 Examples include:
+
 * price manipulation of products to monitor demand elasticity
+
 * testing advertising effectiveness by changing the frequency and choice of advertising
 media
+
 * altering machine settings in a supervised manner to examine the effects on product
 quality.
 
@@ -401,11 +411,6 @@ highest frequency category (on the left) to the lowest frequency category (on th
 and the percentage cumulative frequency polygon (using the right y-axis) on the same
 x-y axes.
 
-
-
-
-
-
 ##Describing Data
 
 ####Introduction
@@ -429,17 +434,133 @@ about the central location measure.
 Example: -
 
 An electronic goods company has recorded the daily sales (in rand) over a
-12-month trading period. The average daily sales are a measure of central location, while
-the extent to which daily sales vary around the average daily sales would be a measure of
-dispersion. Finally, a measure of skewness would identify whether any very large or very
-small daily sales values relative to the average daily sales have occurred over this period.
+12-month trading period. The average daily sales are a measure of central location, while the extent to which daily sales vary around the average daily sales would be a measure of dispersion. Finally, a measure of skewness would identify whether any very large or very small daily sales values relative to the average daily sales have occurred over this period.
 
 ####Measure of Location
 
+A central location statistic is a single number that gives a sense of the 'centrality' of data
+values in a sample.
+
+Three commonly used central location statistics are:
+
+1. Arithmetic mean
+
+The Arithmetic mean (also called the average) is a measure of central location which takes all observation into account.
+
+$$\bar{x}=1/n\sum_{i=1}^{n} y_i$$
+
+The arithmetic mean has the following two advantages.
+* It uses all the data values in its calculation.
+* It is an unbiased statistic (meaning that, on average, it represents the true mean).
+
+The arithmetic mean has the following two advantages.
+
+* It is not appropriate for categorical (i.e. nominal or ordinal-scaled) data.
+* It is distorted by outliers. An outlier is an extreme value in a data set.
+
+2. Median
+
+The median (Me) is the middle number of an ordered set of data.
+
+For Ungrouped Data
+
+* Arrange the n data values in ascending order.
+
+* Find the median by first identifying the middle position in the data set as follows:
+
+- If n is odd, the median value lies in the (n+1)/2th position in the data set.
+
+- If n is even, the median value is found by identifying the n/2th position and then
+averaging the data value in this position with the next consecutive data value.
+
+For Grouped Data
+
+Graphical approach
+Using the 'less than' ogive graph (i.e. cumulative frequency polygon), the median value
+is found by reading off the data value on the x-axis that is associated with the 50%
+cumulative frequency located on the y-axis.
+
+Arithmetic approach
+- Based on the sample size, n, calculate n/2 to find the median position.
+- Using the cumulative frequency counts of the 'less than' ogive summary table, find
+the median interval (i.e. the interval that contains the median position (the ( n/2 )th
+data value).
+- The median value can be approximated using the midpoint of the median interval, or
+calculated using the following formula to give a more representative median value:
+
+$$M=O+c[n/2-f(<)]/f$$
+where
+O = lower limit of the median interval
+c = class width
+n = sample size (number of observations)
+f = frequency count of the median interval
+f(<) = cumulative frequency count of all intervals before the median interval
+
+Advantage: -
+
+* The median has one major advantage over the mean - it is not affected by outliers.
+
+* can also only be applied to numeric data.
+
+
+(c) the mode (or modal value).
+
+All three measures (mean, median and mode) can be used for numeric data, while only the
+mode is valid for categorical data.
+
+
+
+
+
 ####Measure of Dispersion
+
+1.What is Dispersion?
 
 Dispersion (or spread) refers to the extent to which the data values of a numeric random
 variable are scattered about their central location value.
+
+The degree of dispersion in a set of data influences the confidence that a user can have in the reliability of the central location measures. Widely dispersed data values about their central location indicate low reliability and less confidence in the central location as a representative measure. Conversely, a high concentration of data values about their central location indicates high reliability and greater confidence in the representativeness of the central location value.
+
+2. Dispersion Measures: -
+
+Range: - Max(X) - Min(X)
+
+Variance: - $$ s = 1/n-1\sum_{i=1}^{n} (x_i - \mu(x))^2$$\
+
+Division by the sample size, n, would be logical, but the variance statistic would then
+be a biased measure of dispersion. It is unbiased (desirable) when division is by (n ??? 1).
+For large samples (n > 40), this distinction becomes less important.
+The symbol s2 is used to define the variance for sample data, while the symbol ??2 (sigma) is
+used to define the variance of population data.For Population variance it is Divided by N
+
+Standard Deviation: - s.d = sqrt(Variance)
+
+The standard deviation expresses dispersion in the original unit of measure of the random
+variable. The symbol s is used to define the sample standard deviation, and ?? is the population
+standard deviation symbol.
+e.g: - The variance of household electricity consumption is 67.57 kWh2.Its meaning in practical sense is obscure.
+
+The following interpretation can be applied to the standard deviation, if the histogram of a
+numeric random variable is bell-shaped about its mean:
+
+* 68.3% of all data values will lie within one standard deviation of the mean, i.e. between
+the lower limit of (x_bar - s) and the upper limit of (x_bar + s).
+
+* 95.5% of all data values will lie within two standard deviations of the mean, i.e. between
+the lower limit of (x - 2s) and the upper limit of (x + 2s).
+
+* 99.7% (almost all) of the data values will lie within three standard deviations of the
+mean, i.e. between the lower limit of (x - 3s) and the upper limit of (x + 3s).
+
+Coefficient of Variation: - The coefficient of variation (CV) is a measure of relative variability.
+
+CV = $$s/\bar{x}\%$$
+
+A coefficient of variation is always interpreted as a percentage. The smaller the CV, the
+more concentrated the data values are about their mean; conversely, a large CV implies that
+the data values are more widely dispersed about their mean value. The lower limit of a CV is
+zero, but there is no upper limit.
+
 
 ####Measure of Skewness
 
@@ -453,7 +574,10 @@ Three common shapes of a unimodal histogram can generally be observed:
 
 It is important to know the shape of the histogram because it affects the choice of central
 location and dispersion measures to describe the data, and may distort statistical findings
-generated from inferential techniques
+generated from inferential techniques.
+
+
+
 
 Choosing Valid Descriptive Statistics Measures
 
@@ -511,13 +635,7 @@ in any findings.
 
 
 
-
-
-
-
-
-
-# C.Hypothesis Testing
+# D.Hypothesis Testing
 
 ####Introduction
 
@@ -599,5 +717,27 @@ A hypothesis test will establish whether the association as observed in a cross-
 For example, if market research establishes that consumer brand choices of
 fruit juices are influenced by the type of packaging or the shelf position in a supermarket, decisions about which packaging to use or which shelf level to select are important. If, however, brand choice is independent of packaging or shelf level, these factors need not be considered in the promotion of fruit juices.
 
-# Linear Regression
+# E. Linear Regression
 
+#### 1. Correlation
+
+Correlation analysis measures the strength of the linear association between two numeric
+(ratio-scaled) variables, x and y.
+
+Graphical: -
+
+Scatter Diagram
+
+Values of x and y are plotted along x axis and y axis respectively in the x-y plane for Bivariate Distribution.
+
+Karl Pearson Coefficient of Correlation / Product-Moment Correlation Coefficient
+
+$$r(X,Y)=Cov(X,Y)/\sigma(x)\sigma(y)$$
+
+where $$Cov(x,y) = 1/n\sum_{i=1}^{n} x_i*y_i - \mu(x)\mu(y)$$ and
+$$\sigma(x) = 1/n\sum_{i=1}^{n} x_i^2 - \mu(x)^2$$ and $$\sigma(y) = 1/n\sum_{i=1}^{n} y_i^2 - \mu(y)^2$$
+Theorems and Propertise
+1. The Value of correlation ranges from -1 to 1
+2. Correlation coefficient is independent of change of Origin and Scale i.e 
+3. r(ax+b,cy+d) = ac/|ac| * r(x,y)
+4. Two independent Variables are uncorrelated i.e if x and y are independent Cov(X,Y) = 0 Therefore r(X,Y) = 0 but converse is not true.

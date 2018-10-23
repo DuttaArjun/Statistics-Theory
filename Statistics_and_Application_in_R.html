@@ -331,6 +331,22 @@ $(document).ready(function () {
 <li><p>Arrange the intervals consecutively on the x-axis from the lowest interval to the highest. There must be no gaps between adjacent interval limits.</p></li>
 <li><p>Plot the height of each bar (on the y-axis) over its corresponding interval, to show either the frequency count or percentage frequency of each interval. The area of a bar (width × height) measures the density of values in each interval.</p></li>
 </ul>
+<p>What is Cumulative Frequency Distribution?</p>
+<p>A cumulative frequency distribution is a summary table of cumulative frequency counts which is used to answer questions of a ‘more than’ or ‘less than’ nature.</p>
+<p>What is Ogive?</p>
+<p>An ogive is a graph of a cumulative frequency distribution. On the Y axis plot the cumulative frequency count and intervals on the x.</p>
+<p>What is a Box-Plot?</p>
+<p>A box plot visually displays the profile of a numeric variable by showing its minimum and maximum values and various intermediate descriptive values (such as quartiles and medians).</p>
+</div>
+<div id="two-numerical-variable" class="section level4">
+<h4>Two Numerical Variable</h4>
+<p>The relationship between two numeric random variables can be examined graphically by plotting their values on a set of axes.</p>
+<p>The graphs that are useful to display the relationship between two numeric random variables are: a scatter plot, a trendline graph.</p>
+<p>Scatter Plot: -</p>
+<p>A scatter plot displays the data points of two numeric variables on an x-y graph.</p>
+<p>A visual inspection of a scatter plot will show the nature of a relationship between the two variables in terms of its strength (the closeness of the points), its shape (linear or curved), its direction (direct or inverse) and any outliers (extreme data values).</p>
+<p>Trendline Graph: -</p>
+<p>A trendline graph plots the values of a numeric random variable over time.Such data is called time series data.Trendline graphs are commonly used to identify and track trends in time series data.</p>
 </div>
 <div id="pareto-curve" class="section level4">
 <h4>Pareto Curve</h4>
@@ -367,7 +383,25 @@ $(document).ready(function () {
 </div>
 <div id="measure-of-dispersion" class="section level4">
 <h4>Measure of Dispersion</h4>
+<p>1.What is Dispersion?</p>
 <p>Dispersion (or spread) refers to the extent to which the data values of a numeric random variable are scattered about their central location value.</p>
+<p>The degree of dispersion in a set of data influences the confidence that a user can have in the reliability of the central location measures. Widely dispersed data values about their central location indicate low reliability and less confidence in the central location as a representative measure. Conversely, a high concentration of data values about their central location indicates high reliability and greater confidence in the representativeness of the central location value.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Dispersion Measures: -</li>
+</ol>
+<p>Range: - Max(X) - Min(X)</p>
+<p>Variance: - <span class="math display">\[ s = 1/n-1\sum_{i=1}^{n} (x_i - \mu(x))^2\]</span><br />
+Division by the sample size, n, would be logical, but the variance statistic would then be a biased measure of dispersion. It is unbiased (desirable) when division is by (n ??? 1). For large samples (n &gt; 40), this distinction becomes less important. The symbol s2 is used to define the variance for sample data, while the symbol ??2 (sigma) is used to define the variance of population data.For Population variance it is Divided by N</p>
+<p>Standard Deviation: - s.d = sqrt(Variance)</p>
+<p>The standard deviation expresses dispersion in the original unit of measure of the random variable. The symbol s is used to define the sample standard deviation, and ?? is the population standard deviation symbol. e.g: - The variance of household electricity consumption is 67.57 kWh2.Its meaning in practical sense is obscure.</p>
+<p>The following interpretation can be applied to the standard deviation, if the histogram of a numeric random variable is bell-shaped about its mean:</p>
+<ul>
+<li><p>68.3% of all data values will lie within one standard deviation of the mean, i.e. between the lower limit of (x_bar - s) and the upper limit of (x_bar + s).</p></li>
+<li><p>95.5% of all data values will lie within two standard deviations of the mean, i.e. between the lower limit of (x - 2s) and the upper limit of (x + 2s).</p></li>
+<li><p>99.7% (almost all) of the data values will lie within three standard deviations of the mean, i.e. between the lower limit of (x - 3s) and the upper limit of (x + 3s).</p></li>
+</ul>
+<p>Coefficient of Variation: - The coefficient of variation (CV) is a measure of relative variability.</p>
+<p>CV = <span class="math display">\[s/x_bar%\]</span></p>
 </div>
 <div id="measure-of-skewness" class="section level4">
 <h4>Measure of Skewness</h4>
@@ -403,8 +437,8 @@ $(document).ready(function () {
 </div>
 </div>
 </div>
-<div id="c.hypothesis-testing" class="section level1">
-<h1>C.Hypothesis Testing</h1>
+<div id="d.hypothesis-testing" class="section level1">
+<h1>D.Hypothesis Testing</h1>
 <div id="introduction-1" class="section level4">
 <h4>Introduction</h4>
 <p>When a manager makes a claim (or statement) about the value of a population parameter, it can be tested statistically using the inferential approach of hypothesis testing.</p>
@@ -455,8 +489,18 @@ $(document).ready(function () {
 </div>
 </div>
 </div>
-<div id="linear-regression" class="section level1">
-<h1>Linear Regression</h1>
+<div id="e.-linear-regression" class="section level1">
+<h1>E. Linear Regression</h1>
+<div id="correlation" class="section level4">
+<h4>1. Correlation</h4>
+<p>Correlation analysis measures the strength of the linear association between two numeric (ratio-scaled) variables, x and y.</p>
+<p>Graphical: -</p>
+<p>Scatter Diagram</p>
+<p>Values of x and y are plotted along x axis and y axis respectively in the x-y plane for Bivariate Distribution.</p>
+<p>Karl Pearson Coefficient of Correlation / Product-Moment Correlation Coefficient</p>
+<p><span class="math display">\[r(X,Y)=Cov(X,Y)/\sigma(x)\sigma(y)\]</span></p>
+<p>where <span class="math display">\[Cov(x,y) = 1/n\sum_{i=1}^{n} x_i*y_i - \mu(x)\mu(y)\]</span> and <span class="math display">\[\sigma(x) = 1/n\sum_{i=1}^{n} x_i^2 - \mu(x)^2\]</span> and <span class="math display">\[\sigma(y) = 1/n\sum_{i=1}^{n} y_i^2 - \mu(y)^2\]</span> Theorems and Propertise 1. The Value of correlation ranges from -1 to 1 2. Correlation coefficient is independent of change of Origin and Scale i.e 3. r(ax+b,cy+d) = ac/|ac| * r(x,y) 4. Two independent Variables are uncorrelated i.e if x and y are independent Cov(X,Y) = 0 Therefore r(X,Y) = 0 but converse is not true.</p>
+</div>
 </div>
 
 
